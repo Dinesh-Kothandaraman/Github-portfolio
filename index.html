@@ -1,77 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dinesh Kothandaraman | AI/ML Engineer Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinesh Kothandaraman</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <header>
-    <h1>Dinesh Kothandaraman</h1>
-    <p>AI/ML Engineer | GenAI | MLOps | NLP | Cloud</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
-      <a href="Dinesh_Kothandaraman_Resume.pdf" download>Resume</a>
+<body class="bg-gray-900 text-white">
+
+    <!-- Navbar -->
+    <nav class="w-full p-4 bg-gray-800 shadow-md fixed top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Dinesh Kothandaraman</h1>
+            <ul class="flex space-x-6">
+                <li><a href="#about" class="hover:text-gray-400">About</a></li>
+                <li><a href="#skills" class="hover:text-gray-400">Skills</a></li>
+                <li><a href="#projects" class="hover:text-gray-400">Projects</a></li>
+                <li><a href="#experience" class="hover:text-gray-400">Experience</a></li>
+                <li><a href="#contact" class="hover:text-gray-400">Contact</a></li>
+            </ul>
+        </div>
     </nav>
-  </header>
 
-  <section id="profile">
-    <img src="dinesh.jpg" alt="Dinesh Kothandaraman" class="profile-img" />
-  </section>
+    <!-- Hero Section -->
+    <section class="h-[70svh] flex flex-col items-center justify-center text-center mt-20">
+        <img src="dinesh.jpg" alt="Dinesh Kothandaraman" class="w-40 h-40 rounded-full shadow-lg mb-4">
+        <h1 class="text-4xl font-bold">Hello, I'm Dinesh Kothandaraman</h1>
+        <p class="text-lg text-gray-400 mt-2">AI/ML Engineer | GenAI | MLOps | NLP</p>
+    </section>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I'm an AI/ML Engineer with 6+ years of experience building and deploying scalable machine learning systems. My focus includes GenAI, NLP, MLOps, and distributed ML pipelines using PyTorch, TensorFlow, FastAPI, and cloud platforms like AWS and GCP.</p>
-  </section>
+    <!-- About Me Section -->
+    <section id="about" class="py-10 px-4 container mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-6">About Me</h2>
+        <p class="text-lg text-gray-400">
+            I'm an experienced <strong>AI/ML Engineer</strong> with over 6 years in building and deploying production-grade machine learning systems. I specialize in <strong>GenAI, NLP, LLMs, MLOps</strong>, and distributed data pipelines on cloud platforms like <strong>GCP and AWS</strong>.
+        </p>
+    </section>
 
-  <section id="projects">
-    <h2>Highlighted Projects</h2>
+    <!-- Skills Section -->
+    <section id="skills" class="py-12 px-4 container mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-6">Skills Summary</h2>
 
-    <div class="project">
-      <h3>Document QA Chatbot (LangChain + RAG)</h3>
-      <p>Conversational agent using LangChain, vector DBs, and LLMs. Integrated with FastAPI and deployed on AWS with CI/CD. Supports contextual memory and ASR/SSML for voice inputs.</p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-blue-400">ML & NLP</h3>
+                <p class="text-gray-300 mt-2">Transformers, LLMs, RAG, LangChain, T5, BART, Text Summarization, ASR, SSML</p>
+            </div>
+
+            <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-yellow-400">MLOps & Deployment</h3>
+                <p class="text-gray-300 mt-2">Docker, Kubernetes, GitHub Actions, MLflow, Airflow, FastAPI, ClearML</p>
+            </div>
+
+            <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-red-400">Cloud & Big Data</h3>
+                <p class="text-gray-300 mt-2">AWS, GCP, Vertex AI, Spark, Hadoop, Hive, EMR</p>
+            </div>
+
+            <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-purple-400">Programming</h3>
+                <p class="text-gray-300 mt-2">Python, SQL, JavaScript/TypeScript, Java</p>
+            </div>
+
+            <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-cyan-400">Databases</h3>
+                <p class="text-gray-300 mt-2">PostgreSQL, Snowflake, Vector DBs</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-12 px-4 container mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-6">Projects</h2>
+        <div id="project-gallery" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto"></div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center hidden z-50">
+        <button id="close-lightbox" class="absolute top-5 right-5 text-white text-2xl">&times;</button>
+        <button id="prev" class="absolute left-5 text-white text-2xl">&#8592;</button>
+        <img id="lightbox-img" src="" class="max-h-[80vh] max-w-[90vw] object-contain" />
+        <button id="next" class="absolute right-5 text-white text-2xl">&#8594;</button>
     </div>
 
-    <div class="project">
-      <h3>Insurance Underwriting (Cognizant)</h3>
-      <p>End-to-end ML pipeline in PySpark to process large-scale claims data. Deployed XGBoost models via REST APIs for underwriting decisions, with SHAP/LIME explanations.</p>
-    </div>
+    <!-- Experience Section -->
+    <section id="experience" class="py-12 px-4 container mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-6">Professional Experience</h2>
+        <div class="max-w-5xl mx-auto space-y-6">
+            <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-blue-400">Agentic AI Developer - Kamali Inc</h3>
+                <p class="text-gray-400">Sep 2024 - Jun 2025</p>
+                <ul class="text-gray-300 mt-3 list-disc pl-5">
+                    <li>Deployed chatbots using LangChain, RAG, FastAPI & Docker on AWS</li>
+                    <li>Integrated ASR, SSML, and memory-aware agents</li>
+                </ul>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-yellow-400">ML Engineer - Cognizant</h3>
+                <p class="text-gray-400">Jan 2021 - Jul 2023</p>
+                <ul class="text-gray-300 mt-3 list-disc pl-5">
+                    <li>Built underwriting pipelines using PySpark and deployed ML models on AWS</li>
+                    <li>Used SHAP and LIME for interpretability</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-    <div class="project">
-      <h3>Car Logo Detection</h3>
-      <p>Fine-tuned CNNs (ResNet/VGG) in PyTorch on a custom logo dataset. Integrated ClearML for tracking and deployed with Docker.</p>
-    </div>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 container mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-6">Contact Me</h2>
+        <p class="text-lg text-gray-400">📧 Email: <a href="mailto:dineshkothand@gmail.com" class="text-blue-400 hover:underline">dineshkothand@gmail.com</a></p>
+        <p class="text-lg text-gray-400 mt-2">🔗 LinkedIn: <a href="https://linkedin.com/in/dinesh-kothandaraman-a2a396179" class="text-blue-400 hover:underline" target="_blank">linkedin.com/in/dinesh-kothandaraman</a></p>
+        <p class="text-lg text-gray-400 mt-2">💻 GitHub: <a href="https://github.com/Dinesh-Kothandaraman" class="text-blue-400 hover:underline" target="_blank">github.com/Dinesh-Kothandaraman</a></p>
+    </section>
 
-    <div class="project">
-      <h3>Text Summarization (T5, BART, LSTM)</h3>
-      <p>Implemented LSTM w/ attention and transformer-based summarizers. Fine-tuned T5/BART on domain data. Evaluated with ROUGE and BLEU metrics.</p>
-    </div>
-  </section>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const projectGallery = document.getElementById("project-gallery");
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const closeLightbox = document.getElementById("close-lightbox");
+        const prevBtn = document.getElementById("prev");
+        const nextBtn = document.getElementById("next");
 
-  <section id="experience">
-    <h2>Experience</h2>
-    <ul>
-      <li><strong>Kamali Inc (2024–2025)</strong> – Built document-based chatbots using LangChain, RAG, and LLMs. Deployed with FastAPI and Docker on AWS.</li>
-      <li><strong>Cognizant (2021–2023)</strong> – ML pipelines for insurance underwriting using PySpark and XGBoost. CI/CD with Flask APIs and AWS Lambda.</li>
-      <li><strong>Jubilee IT (2017–2020)</strong> – Recommendation systems, segmentation pipelines, and distributed ETL with PySpark and Kafka.</li>
-    </ul>
-  </section>
+        const imageCount = 5; // Number of project images
+        let currentIndex = 0;
+        let images = [];
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:dineshkothand@gmail.com">dineshkothand@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/dinesh-kothandaraman-a2a396179/">linkedin.com/in/dinesh-kothandaraman</a></p>
-    <p>GitHub: <a href="https://github.com/Dinesh-Kothandaraman">github.com/Dinesh-Kothandaraman</a></p>
-  </section>
+        for (let i = 1; i <= imageCount; i++) {
+            let imgSrc = `assets/projects/project1-${i}.jpg`;
+            images.push(imgSrc);
+            const projectItem = document.createElement("div");
+            projectItem.classList.add("bg-gray-800", "rounded-lg", "p-4", "shadow-lg");
+            projectItem.innerHTML = `<img src="${imgSrc}" class="w-full h-48 object-cover rounded-lg cursor-pointer" data-index="${i-1}">`;
+            projectItem.querySelector("img").addEventListener("click", function () {
+                currentIndex = parseInt(this.getAttribute("data-index"));
+                lightboxImg.src = images[currentIndex];
+                lightbox.classList.remove("hidden");
+            });
+            projectGallery.appendChild(projectItem);
+        }
 
-  <footer>
-    <p>© 2025 Dinesh Kothandaraman. All rights reserved.</p>
-  </footer>
+        prevBtn.addEventListener("click", function () {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            lightboxImg.src = images[currentIndex];
+        });
 
-  <script src="script.js"></script>
+        nextBtn.addEventListener("click", function () {
+            currentIndex = (currentIndex + 1) % images.length;
+            lightboxImg.src = images[currentIndex];
+        });
+
+        closeLightbox.addEventListener("click", function () {
+            lightbox.classList.add("hidden");
+        });
+
+        lightbox.addEventListener("click", function (e) {
+            if (e.target === lightbox) lightbox.classList.add("hidden");
+        });
+    });
+    </script>
 </body>
 </html>
