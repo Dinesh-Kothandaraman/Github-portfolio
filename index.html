@@ -1,529 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dinesh Kothandaraman - AI/ML Engineer Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f4f8;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        header {
-            background: linear-gradient(135deg, #007bff, #00c6ff);
-            color: #fff;
-            text-align: center;
-            padding: 80px 20px;
-            position: relative;
-            overflow: hidden;
-            height: 400px; /* Fixed height for the header */
-        }
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
-            animation: pulse 5s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        .header-content {
-            position: relative;
-            z-index: 10;
-            padding-top: 200px; /* Adjust based on image height */
-        }
-        .profile-img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
-        }
-        .profile-img:hover {
-            opacity: 1;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 3em;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-        header p {
-            margin: 10px 0;
-            font-size: 1.2em;
-        }
-        nav {
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-        }
-        nav li {
-            margin: 0 15px;
-        }
-        nav a {
-            display: block;
-            padding: 15px;
-            color: #007bff;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #0056b3;
-        }
-        section {
-            background-color: #fff;
-            margin: 40px 0;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-        section:hover {
-            transform: translateY(-5px);
-        }
-        section h2 {
-            color: #007bff;
-            font-size: 2em;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        section h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background-color: #007bff;
-        }
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .skill-category {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            transition: box-shadow 0.3s;
-        }
-        .skill-category:hover {
-            box-shadow: 0 4px 10px rgba(0,123,255,0.1);
-        }
-        .skill-category h3 {
-            margin-top: 0;
-            color: #0056b3;
-            font-size: 1.2em;
-        }
-        .skill-category ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .skill-category li {
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 20px;
-        }
-        .skill-category li::before {
-            content: '\f058';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            color: #007bff;
-        }
-        .experience-item, .project-item, .education-item {
-            margin-bottom: 30px;
-            padding: 20px;
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            transition: box-shadow 0.3s;
-        }
-        .experience-item:hover, .project-item:hover, .education-item:hover {
-            box-shadow: 0 4px 10px rgba(0,123,255,0.1);
-        }
-        .experience-item h3, .project-item h3, .education-item h3 {
-            margin: 0 0 10px;
-            font-size: 1.5em;
-            color: #007bff;
-        }
-        .experience-item p, .project-item p, .education-item p {
-            margin: 5px 0;
-            font-style: italic;
-            color: #666;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        ul li {
-            margin-bottom: 10px;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        a:hover {
-            color: #0056b3;
-        }
-        .download-btn {
-            display: inline-block;
-            background-color: #007bff;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        .download-btn:hover {
-            background-color: #0056b3;
-            color: #fff;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #007bff;
-            color: #fff;
-            margin-top: 40px;
-        }
-        body::-webkit-scrollbar {
-            width: 8px;
-        }
-        body::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        body::-webkit-scrollbar-thumb {
-            background: #007bff;
-            border-radius: 4px;
-        }
-        body::-webkit-scrollbar-thumb:hover {
-            background: #0056b3;
-        }
-        .container {
-            animation: fadeIn 1s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        section {
-            border-left: 5px solid #007bff;
-            padding-left: 35px;
-        }
-        @media (max-width: 768px) {
-            header {
-                height: 300px;
-            }
-            .header-content {
-                padding-top: 150px;
-            }
-            header h1 {
-                font-size: 2.5em;
-            }
-            section {
-                padding: 20px;
-            }
-            nav ul {
-                flex-direction: column;
-            }
-            nav li {
-                margin: 10px 0;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dinesh Kothandaraman - AI/ML Engineer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f4f8;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(135deg, #007bff, #00c6ff);
+      color: #fff;
+      padding: 40px 20px;
+    }
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+    .profile-left {
+      flex: 0 0 auto;
+    }
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
+    }
+    .profile-right {
+      flex: 1;
+      margin-left: 40px;
+      min-width: 250px;
+    }
+    .profile-right h1 {
+      margin: 0;
+      font-size: 2.5em;
+      font-weight: 700;
+    }
+    .profile-right p {
+      margin: 8px 0;
+      font-size: 1.1em;
+    }
+    .profile-right a {
+      color: #fff;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+    .profile-right a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav li {
+      margin: 0 15px;
+    }
+    nav a {
+      display: block;
+      padding: 15px;
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #0056b3;
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      background-color: #fff;
+      margin: 40px 0;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+      border-left: 5px solid #007bff;
+      padding-left: 35px;
+    }
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    section h2 {
+      color: #007bff;
+      font-size: 2em;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    section h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background-color: #007bff;
+    }
+
+    /* ===== SKILLS GRID ===== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .skill-category {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      transition: box-shadow 0.3s;
+    }
+    .skill-category:hover {
+      box-shadow: 0 4px 10px rgba(0,123,255,0.1);
+    }
+    .skill-category h3 {
+      margin-top: 0;
+      color: #0056b3;
+      font-size: 1.2em;
+    }
+    .skill-category ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .skill-category li {
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 20px;
+    }
+    .skill-category li::before {
+      content: '\f058';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      color: #007bff;
+    }
+
+    /* ===== EXPERIENCE / PROJECTS ===== */
+    .experience-item, .project-item, .education-item {
+      margin-bottom: 30px;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      transition: box-shadow 0.3s;
+    }
+    .experience-item:hover, .project-item:hover, .education-item:hover {
+      box-shadow: 0 4px 10px rgba(0,123,255,0.1);
+    }
+    .experience-item h3, .project-item h3, .education-item h3 {
+      margin: 0 0 10px;
+      font-size: 1.5em;
+      color: #007bff;
+    }
+    .experience-item p, .project-item p, .education-item p {
+      margin: 5px 0;
+      font-style: italic;
+      color: #666;
+    }
+
+    /* ===== LINKS & BUTTONS ===== */
+    a {
+      color: #007bff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    a:hover {
+      color: #0056b3;
+    }
+    .download-btn {
+      display: inline-block;
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .download-btn:hover {
+      background-color: #0056b3;
+      color: #fff;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #007bff;
+      color: #fff;
+      margin-top: 40px;
+    }
+
+    /* ===== SCROLLBAR ===== */
+    body::-webkit-scrollbar {
+      width: 8px;
+    }
+    body::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    body::-webkit-scrollbar-thumb {
+      background: #007bff;
+      border-radius: 4px;
+    }
+    body::-webkit-scrollbar-thumb:hover {
+      background: #0056b3;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .profile-right {
+        margin-left: 0;
+        margin-top: 20px;
+      }
+      nav ul {
+        flex-direction: column;
+      }
+      nav li {
+        margin: 10px 0;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <img src="dinesh.jpg" alt="Dinesh Kothandaraman Profile Picture" class="profile-img">
-        <div class="header-content">
-            <h1>Dinesh Kothandaraman</h1>
-            <p>AI/ML Engineer | Innovator in Generative AI & Machine Learning</p>
-            <p>West Haven, CT | dineshkothand@gmail.com | +1 475-227-5994</p>
-            <p><a href="https://www.linkedin.com/in/dinesh-kothandaraman/" target="_blank" style="color: #fff;"><i class="fab fa-linkedin"></i> LinkedIn</a> | <a href="https://github.com/your-github-username" target="_blank" style="color: #fff;"><i class="fab fa-github"></i> GitHub</a></p>
-        </div>
-    </header>
-    
-    <nav>
-        <ul>
-            <li><a href="#summary">Summary</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#publications">Publications</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#resume">Resume</a></li>
-        </ul>
-    </nav>
-    
-    <div class="container">
-        <section id="summary">
-            <h2>Professional Summary</h2>
-            <p>Seasoned AI/ML Engineer with over 6 years of expertise in crafting and deploying cutting-edge AI solutions. Specializing in scalable MLOps pipelines, end-to-end ML workflows, and innovative Generative AI applications. Proficient in leveraging LLMs, RAG, and cloud platforms to deliver high-impact, production-ready products that drive efficiency and innovation.</p>
-        </section>
-        
-        <section id="skills">
-            <h2>Technical Expertise</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>AI/ML & Gen AI</h3>
-                    <ul>
-                        <li>Machine Learning</li>
-                        <li>Large Language Models (LLMs - Gemini, OpenAI, Claude, open-source LLMs)</li>
-                        <li>Retrieval Augmented Generation (RAG)</li>
-                        <li>Supervised Tuning</li>
-                        <li>Neural Networks</li>
-                        <li>Transformers (T5, BART)</li>
-                        <li>Attention Mechanisms</li>
-                        <li>NLP (NLTK, KeyBERT, Sentence Transformers)</li>
-                        <li>Agentic AI Workflows</li>
-                        <li>Intent Recognition</li>
-                        <li>Text Summarization</li>
-                        <li>Automated Speech Recognition (ASR)</li>
-                        <li>SSML Tagging for TTS</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>MLOps & DevOps</h3>
-                    <ul>
-                        <li>Docker</li>
-                        <li>Kubernetes</li>
-                        <li>Git</li>
-                        <li>GitHub Actions</li>
-                        <li>DVC</li>
-                        <li>MLflow</li>
-                        <li>Experiment Tracking</li>
-                        <li>Model Versioning</li>
-                        <li>Deployment Automation</li>
-                        <li>Workflow Orchestration (Apache Airflow)</li>
-                        <li>Kubeflow</li>
-                        <li>CI/CD Pipelines</li>
-                        <li>Agile Methodologies</li>
-                        <li>Unit Testing</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Big Data Technologies</h3>
-                    <ul>
-                        <li>Apache Spark</li>
-                        <li>Hadoop</li>
-                        <li>Hive</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Programming Languages</h3>
-                    <ul>
-                        <li>Python</li>
-                        <li>JavaScript/TypeScript</li>
-                        <li>SQL</li>
-                        <li>Java</li>
-                        <li>HTML</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>ML Frameworks & Libraries</h3>
-                    <ul>
-                        <li>TensorFlow</li>
-                        <li>PyTorch</li>
-                        <li>Scikit-learn</li>
-                        <li>Apache Spark ML</li>
-                        <li>FastAPI</li>
-                        <li>RESTAPI</li>
-                        <li>Flask</li>
-                        <li>LangChain</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Cloud Platforms & Tools</h3>
-                    <ul>
-                        <li>Google Cloud Platform (GCP)</li>
-                        <li>Vertex AI</li>
-                        <li>Google AutoML</li>
-                        <li>AWS (S3, Lambda, Glue, QuickSight)</li>
-                        <li>Azure</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Databases</h3>
-                    <ul>
-                        <li>Vector DBs</li>
-                        <li>Snowflake</li>
-                        <li>PostgreSQL</li>
-                        <li>SQLiteStudio</li>
-                        <li>SQL Server</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Other</h3>
-                    <ul>
-                        <li>Distributed Systems</li>
-                        <li>Data Science</li>
-                        <li>Data Ingestion</li>
-                        <li>Data Processing</li>
-                        <li>Data Storage</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        
-        <section id="experience">
-            <h2>Professional Experience</h2>
-            <div class="experience-item">
-                <h3>Agentic AI Developer | Kamali Inc, Remote-United States</h3>
-                <p>September 2024 – June 2025</p>
-                <ul>
-                    <li>Architected and deployed advanced conversational chatbots utilizing LangChain, HNSWLIB vector search, and LLMs, mastering RAG for precise document-based QA.</li>
-                    <li>Engineered sophisticated multi-agent workflows in LangChain to optimize user intent simulation and response routing, elevating conversational flow and UX.</li>
-                    <li>Implemented scalable AI/ML apps with FastAPI and Docker on AWS, adhering to CI/CD excellence for resilient production environments.</li>
-                    <li>Tailored prompt templates and agent memory mechanisms to maintain seamless contextual continuity in chatbot interactions.</li>
-                    <li>Integrated ASR and SSML for TTS enhancements, enabling intuitive voice-to-text capabilities in interactive systems.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Machine Learning Engineer | Cognizant Technology Solutions, India</h3>
-                <p>January 2021 – July 2023</p>
-                <ul>
-                    <li>Designed ML pipelines automating underwriting and risk assessment, accelerating policy issuance through data-driven insights.</li>
-                    <li>Harnessed PySpark for TB-scale data processing, executing ETL, feature engineering, and aggregations on health and claims datasets.</li>
-                    <li>Developed XGBoost and Logistic Regression models for risk score prediction, boosting precision and slashing turnaround by 35%.</li>
-                    <li>Deployed model predictions via Flask REST APIs, integrating into dashboards and tools for enhanced decision-making.</li>
-                    <li>Containerized services on AWS EC2 and Lambda for high-availability, low-latency global operations.</li>
-                    <li>Applied SHAP and LIME for model interpretability, empowering underwriters with transparent risk factor insights.</li>
-                    <li>Collaborated in Agile teams to iteratively refine models and APIs with cross-functional stakeholders.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Machine Learning Engineer | Jubliee Information Technology Pvt Ltd, India</h3>
-                <p>July 2017 – December 2020</p>
-                <ul>
-                    <li>Crafted ML recommendation systems for personalized insurance plans, leveraging demographics and history to increase upsell by 20%.</li>
-                    <li>Built segmentation pipelines with K-Means and hierarchical clustering for targeted policyholder grouping.</li>
-                    <li>Processed vast datasets via PySpark, focusing on feature engineering, outlier detection, and multi-level aggregations.</li>
-                    <li>Automated batch scoring on AWS EMR with PySpark, streaming predictions to CRM via Kafka and PostgreSQL.</li>
-                </ul>
-            </div>
-        </section>
-        
-        <section id="publications">
-            <h2>Publications</h2>
-            <div class="publication-item">
-                <h3>Hybrid CNN-LSTM Model for Jail Activity Recognition</h3>
-                <p>October 2024 | Published in 2024 IEEE 15th Annual Ubiquitous Computing, Electronics & Mobile Communication Conference (UEMCON)</p>
-                <p><a href="https://ieeexplore.ieee.org/abstract/document/10754670" target="_blank">View Publication</a></p>
-            </div>
-        </section>
-        
-        <section id="projects">
-            <h2>Key Projects</h2>
-            <div class="project-item">
-                <h3>Document-Based QA System (Conversational AI Chatbot)</h3>
-                <ul>
-                    <li>Engineered a Python-powered chatbot using RAG and LLMs for document querying, employing vector embeddings for accurate context retrieval and intent detection.</li>
-                    <li>Orchestrated pipelines with Apache Airflow for automated data processing and inference integration.</li>
-                    <li>Deployed via GitHub Actions CI/CD for reliable, monitored production readiness.</li>
-                </ul>
-            </div>
-            <div class="project-item">
-                <h3>Remote Patient Care with AWS and IoT (Healthcare Monitoring System)</h3>
-                <ul>
-                    <li>Designed IoT-integrated system on AWS for scalable health monitoring in healthcare.</li>
-                    <li>Utilized AWS Glue and Python for real-time anomaly detection in metrics.</li>
-                    <li>Created QuickSight dashboards for insightful health indicator visualization.</li>
-                </ul>
-            </div>
-            <div class="project-item">
-                <h3>Text Summarization - Natural Language Processing</h3>
-                <ul>
-                    <li>Developed LSTM-attention and transformer (T5, BART) models for abstractive/extractive summarization.</li>
-                    <li>Fine-tuned on domain data for superior ROUGE/BLEU scores.</li>
-                    <li>Visualized attention for interpretability and benchmarked performance.</li>
-                </ul>
-            </div>
-            <div class="project-item">
-                <h3>Car Logo Detection - Deep Learning</h3>
-                <ul>
-                    <li>Built PyTorch model with transfer learning on ResNet/VGG for accurate logo detection.</li>
-                    <li>Fine-tuned with data augmentation and ClearML for tracking and optimization.</li>
-                </ul>
-            </div>
-            <div class="project-item">
-                <h3>Jail Activity Recognition Using CNN and LSTM</h3>
-                <ul>
-                    <li>Created hybrid model for real-time activity recognition on time-series data.</li>
-                </ul>
-            </div>
-            <div class="project-item">
-                <h3>Gender and Age Detection</h3>
-                <ul>
-                    <li>Python DL project for face detection and age/gender classification using pre-trained models.</li>
-                </ul>
-            </div>
-        </section>
-        
-        <section id="education">
-            <h2>Education</h2>
-            <div class="education-item">
-                <h3>Master of Science in Data Science | University of New Haven</h3>
-                <p>August 2023 – May 2025 | GPA: 3.89/4.0</p>
-                <p>Coursework: Artificial Intelligence, Machine Learning, Distributed and Scalable Data Engineering, Programming for Data Science, Deep Learning, Natural Language Processing, Power BI, Bayesian Data Analysis.</p>
-            </div>
-            <div class="education-item">
-                <h3>Bachelor of Engineering in Mechatronics Engineering | Chennai Institute of Technology</h3>
-                <p>June 2013 – April 2017 | GPA: 7.35/10</p>
-                <p>Coursework: Computer Programming, Transforms and Partial Differential Equations, Statistics and Numerical Methods, Object Oriented Programming in C++.</p>
-            </div>
-        </section>
-
-        <section id="resume">
-            <h2>Resume</h2>
-            <p>Download my full resume in PDF format for a comprehensive overview of my professional experience, skills, and achievements.</p>
-            <a href="Dinesh_Kothandaraman_Resume.pdf" download class="download-btn"><i class="fas fa-download"></i> Download Resume</a>
-        </section>
+  <header>
+    <div class="header-container">
+      <div class="profile-left">
+        <img src="dinesh.jpg" alt="Portrait of Dinesh Kothandaraman" class="profile-pic">
+      </div>
+      <div class="profile-right">
+        <h1>Dinesh Kothandaraman</h1>
+        <p>AI/ML Engineer | Innovator in Generative AI & Machine Learning</p>
+        <p>West Haven, CT | dineshkothand@gmail.com | +1 475-227-5994</p>
+        <p>
+          <a href="https://www.linkedin.com/in/dinesh-kothandaraman/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a> |
+          <a href="https://github.com/your-github-username" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        </p>
+      </div>
     </div>
-    
-    <footer>
-        <p>&copy; 2025 Dinesh Kothandaraman. All rights reserved. | Pioneering AI Solutions for Tomorrow's Challenges</p>
-    </footer>
+  </header>
 
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
+  <nav>
+    <ul>
+      <li><a href="#summary">Summary</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#resume">Resume</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <!-- Keep your existing sections (summary, skills, experience, etc.) here -->
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Dinesh Kothandaraman. All rights reserved. | Pioneering AI Solutions for Tomorrow's Challenges</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
         });
-    </script>
+      });
+    });
+  </script>
 </body>
 </html>
